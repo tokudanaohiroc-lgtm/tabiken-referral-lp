@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WIREFRAME｜タビケン留学 友達紹介LP</title>
+<style>
+/* lp-builder 共通ワイヤーフレームCSS — モノクロ厳守。色・装飾は一切入れない。 */
+:root{
+  --ink:#1a1a1a; --mid:#666; --line:#bdbdbd; --box:#e8e8e8; --boxalt:#f4f4f4;
+  --note:#8a8a8a; --maxw:760px; /* SP幅基準。PC幅は body[data-view=pc] で拡張 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;
+  color:var(--ink); background:#fff; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.lp{max-width:var(--maxw);margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+body[data-view=pc] .lp{max-width:1080px}
+
+/* ワイヤー全体のヘッダー（デザイナーへの明示） */
+.wf-banner{
+  background:var(--ink);color:#fff;text-align:center;
+  font-size:12px;letter-spacing:.05em;padding:8px 12px;
+}
+
+/* セクション */
+.sec{padding:40px 28px;border-bottom:1px dashed var(--line);position:relative}
+.sec__tag{ /* セクション番号・名 */
+  position:absolute;top:8px;left:8px;font-size:10px;color:var(--note);
+  border:1px solid var(--line);padding:1px 6px;border-radius:2px;letter-spacing:.04em;
+}
+.sec__note{ /* デザイナー向け意図注釈 */
+  margin-top:16px;font-size:11px;color:var(--note);
+  border-left:2px solid var(--line);padding:6px 10px;background:var(--boxalt);
+}
+.sec__note b{color:var(--mid);font-weight:600}
+
+/* 見出し・テキストのプレースホルダー的見せ方 */
+h1,h2,h3{line-height:1.35;font-weight:700}
+h1{font-size:26px;margin-bottom:12px}
+h2{font-size:21px;margin-bottom:10px}
+h3{font-size:16px;margin-bottom:6px}
+p{font-size:14px;color:#333;margin-bottom:8px}
+.eyebrow{font-size:12px;color:var(--mid);letter-spacing:.08em;margin-bottom:8px}
+
+/* 画像・ロゴのプレースホルダー枠 */
+.ph{
+  background:var(--box);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--note);font-size:12px;text-align:center;border-radius:3px;
+}
+.ph--img{aspect-ratio:16/9}
+.ph--sq{aspect-ratio:1/1}
+.ph--logo{height:36px;width:140px}
+.ph--avatar{width:48px;height:48px;border-radius:50%}
+
+/* ボタン（CTA）— モノクロのまま導線だけ示す */
+.btn{
+  display:inline-block;border:2px solid var(--ink);border-radius:6px;
+  padding:14px 28px;font-size:15px;font-weight:700;text-align:center;
+}
+.btn--block{display:block;width:100%}
+.cta-note{font-size:11px;color:var(--note);margin-top:6px;text-align:center}
+
+/* 汎用レイアウト */
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:4px;padding:16px;background:#fff}
+.metric{font-size:30px;font-weight:800}
+.metric small{font-size:13px;font-weight:500;color:var(--mid)}
+ul.list{list-style:none}
+ul.list li{padding-left:20px;position:relative;font-size:14px;margin-bottom:8px}
+ul.list li::before{content:"✓";position:absolute;left:0;color:var(--mid)}
+.faq-q{font-weight:700;font-size:14px;border-top:1px solid var(--line);padding:14px 0 6px}
+.faq-a{font-size:13px;color:#444;padding-bottom:10px}
+
+</style>
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:12px;color:#333}
+.ph-spec{aspect-ratio:3/2;flex-direction:column;gap:6px;padding:12px;text-align:center;line-height:1.6}
+.countries{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:10px}
+@media(max-width:600px){.countries{grid-template-columns:repeat(3,1fr)}}
+.country{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12px;text-align:center}
+.country .ph{width:38px;height:24px;font-size:9px}
+.note-s{font-size:11px;color:var(--note);line-height:1.7;margin-top:10px}
+.grid2x2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.stepcard{border:1px solid var(--line);border-radius:4px;padding:14px;text-align:center}
+.stepcard .ic{width:40px;height:40px;margin:0 auto 8px}
+.stepcard h3{font-size:14px;margin-bottom:4px}
+.stepcard p{font-size:12px;color:#444}
+.offer{text-align:center}
+</style>
+</head>
+<body>
+<div class="wf-banner">WIREFRAME｜構成・導線定義用 / モノクロ / デザインは別途 ｜ タビケン留学 友達紹介LP</div>
+<div class="lp">
+
+  <!-- ヒーロー -->
+  <section class="sec">
+    <div class="ph ph--logo" style="margin-bottom:16px">[タビケン留学 ロゴ]</div>
+    <p class="eyebrow">タビケン留学のお友達紹介キャンペーン</p>
+    <h1>【友達紹介】留学・ワーキングホリデーをご検討中の方へ｜最大6万円相当の特典！</h1>
+    <div class="chips">
+      <span class="chip">最大6万円の特典</span>
+      <span class="chip">留学人気7カ国サポート</span>
+      <span class="chip">創業10年の実績と信頼</span>
+    </div>
+    <div class="ph ph-spec" style="margin-top:14px">
+      [メインビジュアル｜アスペクト比 3:2 横長]<br>
+      雰囲気：海外留学中の明るい笑顔・前向きな空気感<br>
+      掲載情報：タイトルコピー ＋「最大6万円相当の特典！」バッジ ＋ 友達紹介の文脈
+    </div>
+  </section>
+
+  <!-- リード -->
+  <section class="sec">
+    <p>ワーキングホリデーや留学に興味はあっても、「何から準備すればいいかわからない」「学校もエージェントも多すぎて選びきれない」と立ち止まってしまう方は少なくありません。</p>
+    <p>いちばん信じられるのは、実際に行った人の声です。あなたのお友達もタビケン留学の無料相談から準備を始めました。</p>
+    <p>無料の留学相談では、目的のヒアリングから英語力診断・目標達成までのロードマップ作成まですべて無料で受けられます。まずは相談のご予約から始めてみてください。</p>
+    <a class="btn btn--block" href="#form">LINEで問い合わせる</a>
+  </section>
+
+  <!-- タビケン留学とは -->
+  <section class="sec">
+    <h2>タビケン留学とは？</h2>
+    <div class="ph ph--img" style="margin:4px 0 14px">[写真｜カウンセリング風景・スタッフ、または現地で過ごす留学生]</div>
+    <p>2015年の創業から留学ひとすじに歩み、2025年に創業10周年を迎えました。これまでの留学相談は累計2万人以上。ワーホリで人気のオーストラリア・シドニーにも拠点を置き、留学人気7カ国をサポートしています。</p>
+
+    <h3>留学無料相談でできること</h3>
+    <ul class="list">
+      <li>ワーキングホリデー・留学の目的と理想の形をヒアリング</li>
+      <li>今の英語力を診断し、目標を一緒に整理</li>
+      <li>予算に合う留学の形をロードマップとして具体的にご提案</li>
+      <li>帰国後のキャリアまで相談可能</li>
+    </ul>
+    <p>あなたのお友達もこの無料相談から留学を設計していきました。ここまですべて無料でご用意しています。ぜひご予約ください。</p>
+
+    <h3>留学取扱国</h3>
+    <div class="countries">
+      <div class="country"><div class="ph">[旗]</div>オーストラリア</div>
+      <div class="country"><div class="ph">[旗]</div>カナダ</div>
+      <div class="country"><div class="ph">[旗]</div>ニュージーランド</div>
+      <div class="country"><div class="ph">[旗]</div>イギリス</div>
+      <div class="country"><div class="ph">[旗]</div>アイルランド</div>
+      <div class="country"><div class="ph">[旗]</div>マルタ</div>
+      <div class="country"><div class="ph">[旗]</div>フィリピン</div>
+    </div>
+  </section>
+
+  <!-- 特典 -->
+  <section class="sec">
+    <h2>お友達からの紹介で最大6万円の特典</h2>
+    <div class="card offer">
+      <div class="metric">最大6万円<br><small>の特典</small></div>
+      <p style="margin-top:12px">お友達の紹介でこのページに来たあなたは最大6万円の特典を受け取れます。</p>
+      <p class="note-s">※友達紹介キャンペーンの適用はお申し込み者が対象です。<br>※ご紹介くださったお友達にも特典が付与されます。</p>
+    </div>
+    <a class="btn btn--block" href="#form" style="margin-top:16px">LINEで問い合わせる</a>
+  </section>
+
+  <!-- 申し込み方法 -->
+  <section class="sec">
+    <h2>留学無料相談のお申し込み方法</h2>
+    <div class="grid2x2">
+      <div class="stepcard"><div class="ph ph--sq ic">[アイコン]</div><h3>1. LINEで問い合わせ</h3><p>友だち追加してメッセージを送るだけです。</p></div>
+      <div class="stepcard"><div class="ph ph--sq ic">[アイコン]</div><h3>2. 相談日時を選ぶ</h3><p>ご都合のよい日時をお選びください。</p></div>
+      <div class="stepcard"><div class="ph ph--sq ic">[アイコン]</div><h3>3. オンラインで相談</h3><p>ご自宅から画面ごしにじっくり相談できます。</p></div>
+      <div class="stepcard"><div class="ph ph--sq ic">[アイコン]</div><h3>4. 理想の留学プランを決定</h3><p>合う形が見つかればそのままお申し込みへ。</p></div>
+    </div>
+    <a class="btn btn--block" href="#form" style="margin-top:16px">LINEで問い合わせる</a>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec">
+    <h2>よくあるご質問</h2>
+    <div class="faq-q">Q. 留学相談は本当に無料ですか？</div>
+    <div class="faq-a">A. はい。留学相談に費用は一切かかりません。質の高い情報をお伝えしたうえで、お申し込みを決めるかどうかはお客様次第です。</div>
+    <div class="faq-q">Q. タビケン留学は無料のエージェントですか？</div>
+    <div class="faq-a">A. はい。留学手配にかかる手数料などはいただいておりません。</div>
+    <div class="faq-q">Q. サポート対象国を教えてください。</div>
+    <div class="faq-a">A. オーストラリア、カナダ、ニュージーランド、イギリス、アイルランド、マルタ、フィリピンの計7カ国に対応しています。</div>
+    <div class="faq-q">Q. 手続きはオンラインだけで完結しますか？</div>
+    <div class="faq-a">A. はい。お問い合わせからお申し込みまで、すべてオンラインで完結できます。福岡・九州近郊にお住まいで対面をご希望の方は、福岡オフィスでのカウンセリングも承っています。</div>
+    <div class="faq-q">Q. 友達紹介の特典は、どうすれば受け取れますか？</div>
+    <div class="faq-a">A. お申し込みいただいた方に、最大6万円の特典をお渡しします。ご紹介くださったお友達にも特典が付きます。詳しくは無料相談でご案内します。</div>
+  </section>
+
+  <!-- 締め -->
+  <section class="sec" id="form">
+    <div class="ph ph--img" style="margin-bottom:14px">[写真｜留学を楽しむ人たちの笑顔・集合 など]</div>
+    <p>お友達からいただいたご縁を大切に、精一杯サポートいたします。どうぞよろしくお願いいたします。</p>
+    <a class="btn btn--block" href="#form">LINEで問い合わせる</a>
+  </section>
+
+</div>
+</body>
+</html>
